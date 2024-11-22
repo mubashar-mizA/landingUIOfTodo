@@ -20,19 +20,18 @@ const AddTodo = ({ newTodo }) => {
     }
     return (
         <>
-            <form onSubmit={handleTodoContent} className="flex flex-col w-1/2 mx-auto gap-4">
-                
+            <form onSubmit={handleTodoContent} className="flex flex-col w-4/5 mx-auto md:gap-4">
 
-                    <input
-                        type="text"
-                        value={todoTitle}
-                        onChange={(e) => {
-                            setTodoTitle(e.target.value)
-                        }}
-                        placeholder="Todo Title"
-                        className="border p-2 placeholder:text-black"
-                    />
-                
+                <input
+                    type="text"
+                    value={todoTitle}
+                    onChange={(e) => {
+                        setTodoTitle(e.target.value)
+                    }}
+                    placeholder="Todo Title"
+                    className="border p-2 placeholder:text-black"
+                />
+
                 <textarea
                     value={todoContent}
                     onChange={(e) => {
@@ -42,10 +41,12 @@ const AddTodo = ({ newTodo }) => {
                     className="border p-2 placeholder:text-black"
                     cols={34}
                     rows={10}
+
                 ></textarea>
-                <button 
-                type="submit"
-                className="bg-green-600 p-1 text-white "
+                
+                <button
+                    type="submit"
+                    className="bg-green-600 p-1 text-white "
                 >
                     Add To List
                 </button>
