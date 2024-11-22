@@ -17,26 +17,37 @@ const App = () => {
     <>
 
       <Navigation />
-      <div className='flex'>
+      <div className='flex max-h-screen'>
         <Panel />
         <AddTodo newTodo={handleNewTodo} />
       </div>
+      <div className='md:w-[95%] mx-auto border text-left p-2 mt-10 bg-blue-200'>List Of All Todos</div>
 
-      <table>
-        <thead>
+      <table className='md:w-[95%] mx-auto border text-center mb-10'>
+        <thead className='border'>
           <tr>
-            <th>Sr No</th>
-            <th>Title</th>
-            <th>Content</th>
-            <th>Actions</th>
+            
+            <th className='border' >Sr No.</th>
+            <th className='border' >Title</th>
+            <th className='border' >Content</th>
+            <th className='border'colSpan={3} >Actions</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            {
-              todos.map( ()=>{} )
-            }
-          </tr>
+          {
+
+            todos.map((todo, indexOfTodo) => <tr key={indexOfTodo} className=''>
+              
+              <td className='border' >{indexOfTodo + 1}</td>
+              <td className='border' >{todo.todoTitle}</td>
+              <td className='border' >{todo.todoContent}</td>
+              <td className='border inline-block w-full text-left ' >Edit</td>
+              <td className='border inline-block w-full text-left ' >Trash</td>
+              <td className='border inline-block w-full text-left ' >Delete</td>
+              <td className='border inline-block w-full text-left ' >Complete</td>
+            </tr>
+            )
+          }
         </tbody>
       </table>
     </>
